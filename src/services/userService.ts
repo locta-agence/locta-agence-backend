@@ -1,4 +1,3 @@
-// Fichier : src/services/user.service.ts
 import { User, IUser } from '../models/userModel';
 
 export const createUser = async (userData: Partial<IUser>): Promise<IUser> => {

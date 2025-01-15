@@ -1,4 +1,3 @@
-// Fichier : src/routes/user.routes.ts
 import { Hono } from 'hono';
 import * as UserController from '../controllers/userController';
 

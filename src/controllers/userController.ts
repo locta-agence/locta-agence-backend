@@ -1,4 +1,3 @@
-// Fichier : src/controllers/user.controller.ts
 import { Context } from 'hono';
 import * as UserService from '../services/userService';
 
