@@ -6,10 +6,7 @@ const CONNECTION_STRING = `mongodb+srv://${myEnv.MONGODB_USER}:${myEnv.MONGODB_P
 console.log('CONNECTION_STRING:', CONNECTION_STRING)
 export const connectDB = async () => {
   try {
-    await mongoose.connect(CONNECTION_STRING, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    } as mongoose.ConnectOptions)
+    await mongoose.connect(CONNECTION_STRING)
     console.log('MongoDB connected successfully to Altlas Cluster 🟢!')
   } catch (error) {
     console.error('MongoDB connection error:', error)
