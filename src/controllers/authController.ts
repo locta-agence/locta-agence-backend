@@ -16,7 +16,6 @@ export const jwtAuth = async (c: Context, next: Next) => {
 
     try {
         const token = authHeader.split(' ')[1];
-        console.log(JWT_SECRET);
         const decoded = await verify(token, JWT_SECRET);
         c.set('user', decoded);
         await next();
