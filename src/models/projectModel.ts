@@ -7,6 +7,7 @@ export interface IProject extends Document {
 
 const ProjectSchema: Schema = new Schema({
     name: { type: String, required: true },
+    number: { type: String, required: true },
     description: { type: String, required: true },
     rating: [{ type: String, required: false }],
 }, {
