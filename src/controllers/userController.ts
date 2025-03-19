@@ -1,8 +1,10 @@
 import { Context } from 'hono';
+import bcrypt from 'bcryptjs';
 import * as UserService from '../services/userService';
 
 export const createUser = async (ctx: Context) => {
     const body = await ctx.req.json();
+    body.password = await bcrypt.hash(body.password, 10)
     const user = await UserService.createUser(body);
     return ctx.json(user, 201);
 };
