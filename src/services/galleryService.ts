@@ -21,3 +21,8 @@ export const updateGallery = async (id: string, galleryData: Partial<IGallery>):
 export const deleteGallery = async (id: string): Promise<IGallery | null> => {
     return await Gallery.findByIdAndDelete(id);
 };
+
+export const getGalleriesByProject = async (projectId: string): Promise<IGallery[]> => {
+    return await Gallery.find({ idProject: projectId });
+};
+

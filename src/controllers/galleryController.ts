@@ -33,3 +33,14 @@ export const deleteGallery = async (ctx: Context) => {
     if (!deletedGallery) return ctx.json({ message: 'Gallery not found' }, 404);
     return ctx.json({ message: 'Gallery deleted' });
 };
+
+export const getGalleriesByProject = async (ctx: Context) => {
+    const { projectId } = ctx.req.param();  
+    try {
+        const galleries = await GalleryService.getGalleriesByProject(projectId);
+        if (galleries.length === 0) return ctx.json({ message: 'No galleries found for this project' }, 404);
+        return ctx.json(galleries);
+    } catch (error) {
+        return ctx.json({ message: error.message }, 400); 
+    }
+};

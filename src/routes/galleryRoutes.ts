@@ -8,5 +8,6 @@ galleryRouter.get(':id', GalleryController.getGallery);
 galleryRouter.post('/', GalleryController.createGallery);
 galleryRouter.put('/:id', GalleryController.updateGallery);
 galleryRouter.delete('/:id', GalleryController.deleteGallery);
+galleryRouter.get('/projects/:projectId', GalleryController.getGalleriesByProject);
 
 export default galleryRouter;
