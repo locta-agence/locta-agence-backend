@@ -29,3 +29,7 @@ export const updateProject = async (id: string, projectData: Partial<IProject>):
 export const deleteProject = async (id: string): Promise<IProject | null> => {
     return await Project.findByIdAndDelete(id);
 };
+
+export const getProjectsByCategory = async (categoryId: string): Promise<IProject[]> => {
+    return await Project.find({ idCategory: categoryId }).populate('idCategory');
+};

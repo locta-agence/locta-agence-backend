@@ -8,5 +8,5 @@ projectRouter.get(':id', ProjectController.getProject);
 projectRouter.post('/', ProjectController.createProject);
 projectRouter.put('/:id', ProjectController.updateProject);
 projectRouter.delete('/:id', ProjectController.deleteProject);
-
+projectRouter.get('/categories/:categoryId', ProjectController.getProjectsByCategory); 
 export default projectRouter;

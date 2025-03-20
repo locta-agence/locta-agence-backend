@@ -41,3 +41,14 @@ export const deleteProject = async (ctx: Context) => {
     if (!deletedProject) return ctx.json({ message: 'Project not found' }, 404);
     return ctx.json({ message: 'Project deleted' });
 };
+
+export const getProjectsByCategory = async (ctx: Context) => {
+    const { categoryId } = ctx.req.param();  
+    try {
+        const projects = await ProjectService.getProjectsByCategory(categoryId);
+        if (projects.length === 0) return ctx.json({ message: 'No projects found for this category' }, 404);
+        return ctx.json(projects);
+    } catch (error) {
+        return ctx.json({ message: error.message }, 400); 
+    }
+};
