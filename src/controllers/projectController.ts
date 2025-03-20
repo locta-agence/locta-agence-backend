@@ -2,9 +2,13 @@ import { Context } from 'hono';
 import * as ProjectService from '../services/projectService';
 
 export const createProject = async (ctx: Context) => {
-    const body = await ctx.req.json();
-    const project = await ProjectService.createProject(body);
-    return ctx.json(project, 201);
+    try {
+        const body = await ctx.req.json();
+        const project = await ProjectService.createProject(body);
+        return ctx.json(project, 201);
+    } catch (error) {
+        return ctx.json({ message: error.message }, 400); 
+    }
 };
 
 export const getProject = async (ctx: Context) => {
@@ -22,9 +26,13 @@ export const getAllProjects = async (ctx: Context) => {
 export const updateProject = async (ctx: Context) => {
     const { id } = ctx.req.param();
     const body = await ctx.req.json();
-    const updatedProject = await ProjectService.updateProject(id, body);
-    if (!updatedProject) return ctx.json({ message: 'Project not found' }, 404);
-    return ctx.json(updatedProject);
+    try {
+        const updatedProject = await ProjectService.updateProject(id, body);
+        if (!updatedProject) return ctx.json({ message: 'Project not found' }, 404);
+        return ctx.json(updatedProject);
+    } catch (error) {
+        return ctx.json({ message: error.message }, 400);
+    }
 };
 
 export const deleteProject = async (ctx: Context) => {

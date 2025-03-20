@@ -7,6 +7,7 @@ import galleryRouter from './routes/galleryRoutes';
 import { connectDB } from './config/database';
 import { initializeUsers } from './config/initUsers';
 import { cors } from 'hono/cors'
+import categoryRouter from './routes/categoryRoutes';
 
 const app = new Hono();
 
@@ -18,6 +19,7 @@ app.route('/api/auth', authRouter);
 app.route('/api/users', userRouter);
 app.route('/api/projects', projectRouter);
 app.route('/api/galleries', galleryRouter);
+app.route('/api/categories', categoryRouter);
 
 const PORT = process.env.PORT || 3001;
 

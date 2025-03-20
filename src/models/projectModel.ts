@@ -2,7 +2,10 @@ import mongoose, { Schema, Document } from 'mongoose';
 
 export interface IProject extends Document {
     name: string;
+    number: string;
+    description: string;
     rating: string[];
+    idCategory: mongoose.Types.ObjectId; 
 }
 
 const ProjectSchema: Schema = new Schema({
@@ -10,6 +13,7 @@ const ProjectSchema: Schema = new Schema({
     number: { type: String, required: true },
     description: { type: String, required: true },
     rating: [{ type: String, required: false }],
+    idCategory: { type: mongoose.Schema.Types.ObjectId, ref: 'Category', required: true },  
 }, {
     timestamps: true,
 });
