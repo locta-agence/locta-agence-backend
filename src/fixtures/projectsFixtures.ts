@@ -28,7 +28,7 @@ async function createProjectsForCategories() {
 
                 const gallery = new Gallery({
                     idProject: project._id,
-                    url: `https://source.unsplash.com/random?sig=${Math.floor(Math.random() * 1000)}`, 
+                    url: `https://picsum.photos/500/700?random=${Math.floor(Math.random() * 1000)}`, 
                     isVideo: false  
                 });
 
