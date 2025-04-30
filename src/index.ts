@@ -16,7 +16,7 @@ app.use(cors())
 
 await connectDB();
 await initializeUsers();
-await run();
+// await run();
 app.route('/api/auth', authRouter);
 app.route('/api/users', userRouter);
 app.route('/api/projects', projectRouter);
